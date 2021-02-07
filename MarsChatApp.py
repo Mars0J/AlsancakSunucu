@@ -19,7 +19,7 @@ class ChatServer:
         local_port = 10319
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.server_socket.bind((local_ip, local_port))
-        print ("\033[34m dinleniyor...")
+        print ("\033[34m [*] dinleniyor...")
         self.server_socket.listen(5)
         self.receive_messages_in_a_new_thread()
 
@@ -43,7 +43,7 @@ class ChatServer:
         while True:
             client = so, (ip, port) = self.server_socket.accept()
             self.add_to_clients_list(client)
-            print('Connected to ', ip, ':', str(port))
+            print('\033[32m [+]Bağlandı', ip, ':', str(port))
             t = threading.Thread(target=self.receive_messages, args=(so,))
             t.start()
 
