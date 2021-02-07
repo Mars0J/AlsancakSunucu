@@ -38,6 +38,7 @@ class ChatServer:
             if socket is not senders_socket:
                 socket.sendall(self.last_received_message.encode('utf-8'))
 
+                
     def receive_messages_in_a_new_thread(self):
         while True:
             client = so, (ip, port) = self.server_socket.accept()
