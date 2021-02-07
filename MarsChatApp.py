@@ -52,5 +52,6 @@ class ChatServer:
             self.clients_list.append(client)
 
 
+            
 if __name__ == "__main__":
     ChatServer()
