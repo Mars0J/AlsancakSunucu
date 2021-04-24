@@ -1,6 +1,6 @@
-from tkinter import Tk, Frame, Scrollbar, Label, END, Entry, Text, VERTICAL, Button, messagebox #Tkinter Python Module for GUI  
-import socket #Sockets for network connection
-import threading # for multiple proccess 
+from tkinter import Tk, Frame, Scrollbar, Label, END, Entry, Text, VERTICAL, Button, messagebox 
+import socket
+import threading
 
 
 class GUI:
@@ -18,7 +18,7 @@ class GUI:
         self.listen_for_incoming_messages_in_a_thread()
 
     def initialize_socket(self):
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # initialazing socket with TCP and IPv4
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         remote_ip = '127.0.0.1'  
         remote_port = 10319
         self.client_socket.connect((remote_ip, remote_port))
@@ -32,7 +32,7 @@ class GUI:
 
 
     def listen_for_incoming_messages_in_a_thread(self):
-        thread = threading.Thread(target=self.receive_message_from_server, args=(self.client_socket,)) # Create a thread for the send and receive in same time 
+        thread = threading.Thread(target=self.receive_message_from_server, args=(self.client_socket,))
         thread.start()
 
     def receive_message_from_server(self, so):
